@@ -1,9 +1,10 @@
 CUR_DIR=$(dirname ${BASH_SOURCE[0]})
 
 INCLUDE=(
+    manager.sh
+    lxlib.sh
     chalk.sh
     color.sh
-    lxlib.sh
 )
 
 for i in ${INCLUDE[@]}; do

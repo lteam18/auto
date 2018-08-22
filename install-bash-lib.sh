@@ -1,38 +1,12 @@
-LIBS=(
-    index.sh
-    chalk.sh
-    color.sh
-    lxlib.sh
-    # lib.sh
-    # alias.sh
-)
+#! /usr/env/bin bash
 
 PREFIX="https://lteam18.github.io/auto/bash-lib"
 
 CUR_DIR=$HOME/.lteam18.auto.bash-lib
+curl "$PREFIX/manager.sh" > $CUR_DIR/manager.sh
 
-mkdir -p $CUR_DIR
+source $CUR_DIR/manager.sh
 
-for i in ${LIBS[@]}; do
-    curl "$PREFIX/$i" > $CUR_DIR/$i
-done
+install_default
 
-exist_or_append(){
-  local filename="$1"
-  local string_to_append="$2"
-  grep -F --quiet "$string_to_append" "$filename" || echo "$string_to_append" >> "$filename"
-  echo "$filename"
-}
-
-if [ "Darwin" == $(uname) ]; then
-    exist_or_append "$HOME/.bashrc" "source $CUR_DIR/index.sh"
-    echo "You are using mac. If you need build profile, please involke 'build_profile'"
-else
-    exist_or_append "$HOME/.bashrc" "source $CUR_DIR/index.sh"
-fi
-
-build_profile(){
-    exist_or_append "$HOME/.bash_profile" "[ -f ~/.bashrc ] && source ~/.bashrc"
-}
-
-export -f build_profile
+build_bashrc
