@@ -2,6 +2,7 @@ LIBS=(
     index.sh
     chalk.sh
     color.sh
+    lxlib.sh
     # lib.sh
     # alias.sh
 )
@@ -10,7 +11,7 @@ PREFIX="https://lteam18.github.io/auto/bash-lib"
 
 CUR_DIR=$HOME/.lteam18.auto.bash-lib
 
-mkdir $CUR_DIR
+mkdir -p $CUR_DIR
 
 for i in ${LIBS[@]}; do
     curl "$PREFIX/$i" > $CUR_DIR/$i
@@ -27,11 +28,11 @@ if [ "Darwin" == $(uname) ]; then
     exist_or_append "$HOME/.bashrc" "source $CUR_DIR/index.sh"
     echo "You are using mac. If you need build profile, please involke 'build_profile'"
 else
-    echo hi
+    exist_or_append "$HOME/.bashrc" "source $CUR_DIR/index.sh"
 fi
 
 build_profile(){
-    exist_or_append "$HOME/.bash_profile" "[ -f ~/.bashrc ] && source ~/.basrc"
+    exist_or_append "$HOME/.bash_profile" "[ -f ~/.bashrc ] && source ~/.bashrc"
 }
 
 export -f build_profile
