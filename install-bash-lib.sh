@@ -7,6 +7,6 @@ curl "$PREFIX/manager.sh" > $CUR_DIR/manager.sh
 
 source $CUR_DIR/manager.sh
 
-install_default
+man.install.default
 
-build_bashrc
+man.build.bashrc
