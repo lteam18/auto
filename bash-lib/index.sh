@@ -2,6 +2,7 @@ CUR_DIR=$(dirname ${BASH_SOURCE[0]})
 
 INCLUDE=(
     manager.sh
+    lib.sh
     lxlib.sh
     chalk.sh
     color.sh

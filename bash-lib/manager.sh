@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 
+PREFIX="https://lteam18.github.io/auto/bash-lib"
 CUR_DIR=$HOME/.lteam18.auto.bash-lib
 
 man.install(){
@@ -13,7 +14,7 @@ man.install.all(){
 }
 
 man.install.default(){
-    man.install.all index.sh lxlib.sh chalk.sh color.sh
+    man.install.all index.sh lib.sh lxlib.sh chalk.sh color.sh
 }
 
 exist_or_append(){
@@ -28,10 +29,8 @@ man.build.profile(){
 }
 
 man.build.bashrc(){
+    exist_or_append "$HOME/.bashrc" "source $CUR_DIR/index.sh"
     if [ "Darwin" == $(uname) ]; then
-        exist_or_append "$HOME/.bashrc" "source $CUR_DIR/index.sh"
         echo "You are using mac. If you need build profile, please involke 'man.build.profile'"
-    else
-        exist_or_append "$HOME/.bashrc" "source $CUR_DIR/index.sh"
     fi
 }
