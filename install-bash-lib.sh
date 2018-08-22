@@ -1,9 +1,9 @@
 #! /usr/env/bin bash
 
-PREFIX="https://lteam18.github.io/auto/bash-lib"
+LT_AUTO_REPO="https://lteam18.github.io/auto/bash-lib"
 
 CUR_DIR=$HOME/.lteam18.auto.bash-lib
-curl "$PREFIX/manager.sh" > $CUR_DIR/manager.sh
+curl "$LT_AUTO_REPO/manager.sh" > $CUR_DIR/manager.sh
 
 source $CUR_DIR/manager.sh
 

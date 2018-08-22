@@ -1,10 +1,10 @@
 #! /usr/bin/env bash
 
-PREFIX="https://lteam18.github.io/auto/bash-lib"
+LT_AUTO_REPO="https://lteam18.github.io/auto/bash-lib"
 CUR_DIR=$HOME/.lteam18.auto.bash-lib
 
 man.install(){
-    curl "$PREFIX/$i" > $CUR_DIR/$i
+    curl "$LT_AUTO_REPO/$i" > $CUR_DIR/$i
 }
 
 man.install.all(){
