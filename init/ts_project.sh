@@ -36,9 +36,9 @@ init_package_json(){
   echo "init package json"
   sed -e "5d" \
   -e '4a\
-  \ \ "main": "src/index.js",'\
+  \ \ "main": "dist/index.js",'\
   -e '4a\
-  \ \ "typings": "dist/index.ts",' package.json 1>package.json.bak
+  \ \ "typings": "src/index.ts",' package.json 1>package.json.bak
   mv package.json.bak package.json
 }
 
