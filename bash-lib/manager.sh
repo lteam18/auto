@@ -8,12 +8,12 @@ man.install(){
 
 man.install.all(){
     for i in $@; do
-        install $i
+        man.install $i
     done
 }
 
 man.install.default(){
-    install_all index.sh lxlib.sh chalk.sh color.sh
+    man.install.all index.sh lxlib.sh chalk.sh color.sh
 }
 
 exist_or_append(){
@@ -30,7 +30,7 @@ man.build.profile(){
 man.build.bashrc(){
     if [ "Darwin" == $(uname) ]; then
         exist_or_append "$HOME/.bashrc" "source $CUR_DIR/index.sh"
-        echo "You are using mac. If you need build profile, please involke 'build_profile'"
+        echo "You are using mac. If you need build profile, please involke 'man.build.profile'"
     else
         exist_or_append "$HOME/.bashrc" "source $CUR_DIR/index.sh"
     fi
