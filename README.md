@@ -13,10 +13,10 @@ bash <(curl https://lteam18.github.io/auto/install-bash-lib.sh)
 source <(curl https://lteam18.github.io/auto/bash-lib/chalk.sh)
 
 # For MacOS/Unix
-RF=/tmp/$RANDOM; curl https://lteam18.github.io/auto/bash-lib/chalk.sh > $RF; source $RF; rm $RF
+RF=/tmp/$RANDOM; curl https://lteam18.github.io/auto/bash-lib/chalk.sh > $RF; source $RF; rm $RF;
 
 # For MacOS/Unix
-function source.url() { local RF=/tmp/$RANDOM; curl $1 > $RF; source $RF; rm $RF }
+function source.url() { local RF=/tmp/$RANDOM; curl $1 > $RF; source $RF; rm $RF; }
 source.url https://lteam18.github.io/auto/bash-lib/chalk.sh
 ```
 

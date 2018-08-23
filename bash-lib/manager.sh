@@ -20,6 +20,10 @@ man.source.url(){
     rm $RF
 }
 
+man.source.auto(){
+    man.source.url "$LT_AUTO_REPO/$1"
+}
+
 man.install.default(){
     man.install.all index.sh lib.sh lxlib.sh chalk.sh color.sh
 }
