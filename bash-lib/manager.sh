@@ -13,6 +13,13 @@ man.install.all(){
     done
 }
 
+man.source.url(){
+    local RF=/tmp/$RANDOM
+    curl "$1" > $RF
+    source $RF
+    rm $RF
+}
+
 man.install.default(){
     man.install.all index.sh lib.sh lxlib.sh chalk.sh color.sh
 }
