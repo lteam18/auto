@@ -60,7 +60,9 @@ $KOA &&\
 $TS &&\
 RUN_CMD_WITH_STEP 3b "Install typescript packages and init tsconfig"\
   npm install @types/node typescript ts-node ts-lint typescript-formatter --save-dev &&\
-  node_modules/.bin/tsc --init -t es6
+  npm install git+ssh://github.com/edwinjhlee/tslint-auto-fixable-format.git --save-dev &&\
+  node_modules/.bin/tsc --init -t es6 &&\
+  node_modules/.bin/tslint --init
 
 $WS_CLIENT &&\
 RUN_CMD_WITH_STEP 3c "Init typescript project"\
