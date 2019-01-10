@@ -8,7 +8,6 @@ echo $RAND_ID
 NAME="MPROTO-$PORT"
 docker run -d --name $NAME --restart=always -p$PORT:443 -e SECRET=${RAND_ID} telegrammessenger/proxy:latest
 
-
 SERVER="${2:-$(curl http://ipecho.net/plain)}"
 URL="tg://proxy?server=$SERVER&port=$PORT&secret=$RAND_ID"
 echo $URL
