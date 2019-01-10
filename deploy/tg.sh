@@ -12,7 +12,7 @@ SERVER="${2:-$(curl http://ipecho.net/plain)}"
 URL="tg://proxy?server=$SERVER&port=$PORT&secret=$RAND_ID"
 echo $URL
 
-MSG="MProto $SERVER:$PORT Effect @ "$(date +"%Y-%m-%d")
+MSG="$SERVER:$PORT Effect @ "$(date +"%Y-%m-%d")
 
 curl -i -X POST -H "Content-Type: application/json" -d "{ \"chat_id\": -1001336023411, \"text\": \"[$MSG]($URL)\", \"parse_mode\": \"Markdown\" }" "https://api.telegram.org/bot767586102:AAEadFW8WMPSwcRoqcSUWLQC0aQ4PUd9ppI/sendMessage"
 
