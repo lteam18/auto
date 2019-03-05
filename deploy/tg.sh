@@ -5,7 +5,7 @@ GENERATE_ID=$(openssl rand -hex 16)
 RAND_ID=${2:-$GENERATE_ID}
 
 NAME="MPROTO-$PORT"
-docker run -d --name $NAME --restart=always -p$PORT:443 -e SECRET=${RAND_ID} telegrammessenger/proxy:latest
+docker run -d --ulimit nofile=98304:98304 --name $NAME --restart=always -p$PORT:443 -e SECRET=${RAND_ID} telegrammessenger/proxy:latest
 
 SERVER="${3:-$(curl http://ipecho.net/plain)}"
 URL="tg://proxy?server=$SERVER&port=$PORT&secret=$RAND_ID"
