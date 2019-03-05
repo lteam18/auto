@@ -2,7 +2,7 @@
 
 PORT=${1:?"Please provide port in first argument"}
 GENERATE_ID=$(openssl rand -hex 16)
-RAND_ID=${2:-GENERATE_ID}
+RAND_ID=${2:-$GENERATE_ID}
 
 NAME="MPROTO-$PORT"
 docker run -d --name $NAME --restart=always -p$PORT:443 -e SECRET=${RAND_ID} telegrammessenger/proxy:latest
