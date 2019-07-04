@@ -2,13 +2,13 @@
 
 PORT=${1:?"Please provide port in first argument"}
 GENERATE_ID=$(openssl rand -hex 16)
-RAND_ID=dd${2:-$GENERATE_ID}
+RAND_ID=${2:-$GENERATE_ID}
 
 NAME="MPROTO-$PORT"
 docker run -d --ulimit nofile=98304:98304 --name $NAME --restart=always -p$PORT:443 -e SECRET=${RAND_ID} telegrammessenger/proxy:latest
 
 SERVER="${3:-$(curl http://ipecho.net/plain)}"
-URL="tg://proxy?server=$SERVER&port=$PORT&secret=$RAND_ID"
+URL="tg://proxy?server=$SERVER&port=$PORT&secret=dd$RAND_ID"
 echo $URL
 
 MSG="Random: mproto://$SERVER:$PORT"
